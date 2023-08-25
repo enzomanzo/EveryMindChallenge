@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/styles/style-competencias.css">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img class="logo" src="/images/logo-removebg-preview.png" alt="">
+                EveryMind
+            </a>
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                data-mdb-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="#">teste</a>
+                    <a class="nav-link" href="#">teste1</a>
+                    <a class="nav-link" href="#">teste2</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="formulario">
+        <div class="wrapper">
+            <h2>Editar Competencias</h2>
+            <form action="#">
+                
+                <div class="lista-competencias">
+                    <div class="block">
+                        <label class= "titulo" for="">Excel</label>
+                        <p class="descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi suscipit eligendi vitae inventore beatae, obcaecati optio minima itaque at. Dolorem perspiciatis sapiente ipsum. Explicabo expedita nihil sapiente harum animi aut.</p>
+                    </div>
+                    <div class="block">
+                        <label class= "titulo" for="">AWS</label>
+                        <p class="descricao">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis consequatur hic dolore eaque animi et sapiente tenetur, aperiam vel! Sint quas aspernatur earum facilis eius nam nihil sed totam ipsam.</p>
+                    </div>                   <div class="block">
+                        <label class= "titulo" for="">Swift</label>
+                        <p class="descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae est consequatur non ab. Nemo, totam et autem assumenda a quibusdam corrupti magnam deserunt cupiditate excepturi temporibus ipsam fugit nisi perspiciatis.</p>
+                    </div>
+                    <div class="block">
+                        <label class= "titulo" for="">Java</label>
+                        <p class="descricao">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non inventore doloremque pariatur dignissimos sed tempore deserunt, vero ipsum molestiae maxime culpa. Est nobis vero libero id! Dolore eaque reprehenderit pariatur.</p>
+                    </div>                   <div class="block">
+                        <label class= "titulo" for="">Kotlin</label>
+                        <p class="descricao">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis quod blanditiis tempore voluptates inventore distinctio deserunt quo quibusdam, harum quas culpa et sapiente ipsam laborum. Reiciendis temporibus culpa natus iure?</p>
+
+
+                </div>
+
+                <div class="input-box button-group">
+                    <input type="button" value="Voltar" onclick="redirectToInformacoes()">
+                    <input type="button" value="Próximo" onclick="redirectToCursos()">
+                    <input class="plus" type="button" value="+" onclick="redirectToAddCompetencias()">
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+        <script>
+            function redirectToInformacoes() {
+                window.location.href = "informacoes.html";
+            }
+            function redirectToAddCompetencias() {
+                window.location.href = "addcompetencia.html";
+            }
+            function redirectToCursos() {
+                window.location.href = "cursos.html";
+            }
+        </script>
+</body>
+
+</html>
