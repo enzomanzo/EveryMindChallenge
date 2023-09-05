@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/verdetalhesok.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img class="logo" src="../images/logo-removebg-preview.png" alt="">
+                EveryMind
+            </a>
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                data-mdb-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="candidatos.html">Candidatos</a>
+                    <a class="nav-link" href="vagas.html">Vagas</a>
+                    <a class="nav-link" href="perfil.html">Perfil</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid mt-5 d-flex justify-content-center">
+        <div class="col-lg-5 mb-4">
+            <div class="custom-div text-center">
+                <a href="../pages/vagas.html" class="back-link" >Voltar</a>
+                <img src="../images/logo-removebg-preview.png" alt="Descrição da Imagem 1">
+                <h3>Inscrição feita com sucesso</h3>
+                <p>Apos se aplicar na vaga, o recrutador entrará em contato pelo e-mail cadastrado e você seguira o processo seletivo pelo e-mail.</p>
+                <button class="ok" onclick="redirectToVagas()" >Entendi</button>
+            
+            </div>
+    
+            
+            
+        </div>
+    </div>
+    
+
+<!-- Bootstrap JS e Popper.js para Dropdown -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
+
+<script>
+    function redirectToVagas() {
+        window.location.href = "vagas.html";
+    }
+</script>
+
+</body>
+</html>
