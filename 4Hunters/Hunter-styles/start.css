@@ -11,7 +11,7 @@
 }
 
 body, html {
-    background-image: url(/EveryMindChallenge/images/hire.jpg);
+    background-image: url(/images/hire.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh; /* Ajuste para a altura ser baseada na janela de visualização */
@@ -47,7 +47,7 @@ main {
 .credit button {
     background: #1fdf9f;
     border-radius: 6px;
-    border: 1px solid black;
+    border: 1px solid #1fdf9f;
     font-weight: 500;
     padding: 10px 50px;
     font-size: 30px;
