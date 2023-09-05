@@ -1,0 +1,125 @@
+.logo {
+    width: 60px;
+    height: 60px;
+    transform: translate(-4px);
+    margin-left: 10px;
+    margin-top: -15px;
+}
+
+.navbar-brand {
+    font-weight: 500;
+}
+
+.custom-div {
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.custom-btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #1fdf9f;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto 0;  /* centraliza o botão */
+}
+
+.custom-btn:hover {
+    background-color: #555;
+}
+
+.custom-div img {
+    object-fit: cover;
+    width: 70%;
+    height: auto;
+    display: block;
+    margin: 20px auto;  /* centraliza a imagem */
+}
+
+.custom-div p {
+    margin-top: 10px;
+}
+.custom-div {
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;  /* Adicionado */
+}
+
+.back-arrow {
+    font-size: 20px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    text-decoration: none;
+    color: black;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.back-arrow:hover {
+    background-color: #f7f7f7;
+}
+
+.custom-div {
+    position: relative; /* Já mencionado anteriormente, mas reforçando aqui */
+    /* restante do CSS */
+}
+
+.location-text {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.image-group {
+    display: flex;
+    justify-content: center; /* Centraliza as imagens no eixo horizontal */
+    align-items: center; /* Centraliza as imagens no eixo vertical */
+    gap: 10px; /* Espaçamento entre as imagens */
+    margin: 20px 0; /* Espaço acima e abaixo das imagens */
+}
+
+.small-image {
+    max-width: 20%; /* Aqui definimos a largura das imagens. Você pode ajustar este valor conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+.top-right-text {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.5); /* Para tornar o texto legível independentemente da imagem */
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+
+p{
+    font-size: large;
+    font-weight: 450
+}
+
+.back-link {
+    font-weight: bold;
+    font-size: 16px; 
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    text-decoration: none;
+    color: black;
+    background-color: #c4c4c4;
+    padding: 5px 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.back-link:hover {
+    background-color: #f7f7f7;
+}

@@ -170,3 +170,15 @@ form .text h3 a:hover{
 .checkbox-container label {
     margin-left: 8px;
 }
+
+.logo {
+  width: 60px;
+  height: 60px;
+  transform: translate(-4px);
+  margin-left: 10px;
+  margin-top: -15px;
+}
+
+.navbar-brand {
+  font-weight: 500;
+}
