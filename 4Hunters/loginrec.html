@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../styles/style-add-experiencia-rec.css">
+    <link rel="stylesheet" href="../styles/signinrec.css">
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -17,20 +17,24 @@
 
     <div class="formulario">
         <div class="wrapper">
-            <h2>Adicionar Experiência</h2>
+            <img class="signin-img" src="/images/logo-removebg-preview.png" alt="">
+            <h2>Log In</h2>
             <form action="#">
                 <div class="input-box">
-                    <input type="text" placeholder="Empresa" required>
+                    <input type="email" placeholder="Email Address" required>
                 </div>
                 <div class="input-box">
-                    <input type="text" placeholder="Cargo" required>
+                    <input type="password" placeholder="Password" required>
+                </div>
+
+                <div class="input-box button-group">
+                    <input type="button" value="Continuar" class="btn-adicionar"  onclick= "redirectToStartRec()">
                 </div>
                 <div class="input-box button-group">
-                    <input type="button" value="Adicionar" class="btn-adicionar"  onclick="redirectToExperienciaRec()">
+                    <input type="button" value="Cadastrar" class="btn-adicionar"  onclick= "redirectToSigninRec()">
                 </div>
             </form>
         </div>
-        <input class="voltar" type="button" value="Voltar" onclick="redirectToExperienciaRec()">
         
     </div>
 
@@ -40,11 +44,11 @@
         crossorigin="anonymous"></script>
 
         <script>
-            function redirectToExperienciaRec() {
-                window.location.href = "experienciasRec.html";
+            function redirectToStartRec() {
+                window.location.href = "/4Hunters/start.html";
             }
-            function redirectToCompetencias() {
-                window.location.href = "competencias.html";
+            function redirectToSigninRec() {
+                window.location.href = "/4Hunters/signinrec.html";
             }
         </script>
 </body>
