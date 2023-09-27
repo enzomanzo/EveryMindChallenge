@@ -1,12 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../4Hunters/Hunter-styles/candidatos.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body>
@@ -46,81 +44,52 @@
             <input type="text" class="form-control" placeholder="Buscar...">
         </div>
     </div>
-    
-    
+
     <div class="container mt-5">
-        <div class="row">
+        <div class="row" id="candidatosContainer">
+            <!-- As divs dos candidatos serão inseridas aqui pelo JavaScript -->
+        </div>
+    </div>
+  
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            buscarCandidatos();
+        });
 
-            <div class="col-lg-3 mb-4">
-                <div class="custom-div">
-                    <img src="../images/candidato1.jpg" alt="Descrição da Imagem 1">
-                    <p>Nome:Bruno Bergamasco <br>Curso:Informática <br>Cidade:São Paulo <br>Vulnerabilidade Social:Baixa renda <br>Idade: 20 anos <br>Estudante dedicado e entusiasta, com habilidades em comunicação e adaptabilidade</p>
-                    <button class="custom-btn" href="../4Hunters/verperfil.html" onclick="redirectToVerPerfil()" >Ver Perfil </button> 
-                </div>
-            </div>
-            <div class="col-lg-3 mb-4">
-                <div class="custom-div">
-                    <img src="../images/candidato1.jpg" alt="Descrição da Imagem 1">
-                    <p>Nome:Bruno Bergamasco <br>Curso:Informática <br>Cidade:São Paulo <br>Vulnerabilidade Social:Baixa renda <br>Idade: 20 anos <br>Estudante dedicado e entusiasta, com habilidades em comunicação e adaptabilidade</p>
-                    <button class="custom-btn" onclick="redirectToVerPerfil()">Ver Perfil</button>
-                </div>
-            </div>
-            <div class="col-lg-3 mb-4">
-                <div class="custom-div">
-                    <img src="../images/candidato1.jpg" alt="Descrição da Imagem 1">
-                    <p>Nome:Bruno Bergamasco <br>Curso:Informática <br>Cidade:São Paulo <br>Vulnerabilidade Social:Baixa renda <br>Idade: 20 anos <br>Estudante dedicado e entusiasta, com habilidades em comunicação e adaptabilidade</p>
-                    <button class="custom-btn" onclick="redirectToVerPerfil()">Ver Perfil</button>
-                </div>
-            </div>
-            <div class="col-lg-3 mb-4">
-                <div class="custom-div">
-                    <img src="../images/candidato1.jpg" alt="Descrição da Imagem 1">
-                    <p>Nome:Bruno Bergamasco <br>Curso:Informática <br>Cidade:São Paulo <br>Vulnerabilidade Social:Baixa renda <br>Idade: 20 anos <br>Estudante dedicado e entusiasta, com habilidades em comunicação e adaptabilidade</p>
-                    <button class="custom-btn" onclick="redirectToVerPerfil()">Ver Perfil</button>
-                </div>
-            </div>
-            <div class="col-lg-3 mb-4">
-                <div class="custom-div">
-                    <img src="../images/candidato2.jpg" alt="Descrição da Imagem 1">
-                    <p>Nome:Bruno Bergamasco <br>Curso:Informática <br>Cidade:São Paulo <br>Vulnerabilidade Social:Baixa renda <br>Idade: 20 anos <br>Estudante dedicado e entusiasta, com habilidades em comunicação e adaptabilidade</p>
-                    <button class="custom-btn" onclick="redirectToVerPerfil()">Ver Perfil</button>
-                </div>
-            </div>            <div class="col-lg-3 mb-4">
-                <div class="custom-div">
-                    <img src="../images/candidato2.jpg" alt="Descrição da Imagem 1">
-                    <p>Nome:Rafael Gomes <br>Curso:Informática <br>Cidade:São Paulo <br>Vulnerabilidade Social:Baixa renda <br>Idade: 20 anos <br>Estudante dedicado e entusiasta, com habilidades em comunicação e adaptabilidade</p>
-                    <button class="custom-btn">Ver Perfil</button>
-                </div>
-            </div>
-            <div class="col-lg-3 mb-4">
-                <div class="custom-div">
-                    <img src="../images/candidato2.jpg" alt="Descrição da Imagem 1">
-                    <p>Nome:Rafael Gomes <br>Curso:Informática <br>Cidade:São Paulo <br>Vulnerabilidade Social:Baixa renda <br>Idade: 20 anos <br>Estudante dedicado e entusiasta, com habilidades em comunicação e adaptabilidade</p>
-                    <button class="custom-btn">Ver Perfil</button>
-                </div>
-            </div>
-            <div class="col-lg-3 mb-4">
-                <div class="custom-div">
-                    <img src="../images/candidato2.jpg" alt="Descrição da Imagem 1">
-                    <p>Nome:Rafael Gomes <br>Curso:Informática <br>Cidade:São Paulo <br>Vulnerabilidade Social:Baixa renda <br>Idade: 20 anos <br>Estudante dedicado e entusiasta, com habilidades em comunicação e adaptabilidade</p>
-                    <button class="custom-btn">Ver Perfil</button>
-                </div>
-            </div>
+        async function buscarCandidatos() {
+            try {
+                let response = await fetch("http://localhost:8080/mnt_job_vacancies/v1/person");
+                if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+                
+                let candidatos = await response.json();
+                
+                let container = document.getElementById('candidatosContainer');
+                
+                candidatos.forEach(candidato => {
+                    if (candidato.name && candidato.name.trim() !== "") {
+                        let div = document.createElement('div');
+                        div.className = 'col-lg-3 mb-4';
+                        div.innerHTML = `
+                            <div class="custom-div">
+                                <img src="${candidato.photo || '../images/default-photo.jpg'}" alt="Foto de ${candidato.name}">
+                                <p>Nome: ${candidato.name} <br>Curso: ${candidato.coursesDTOS?.[0]?.course || 'N/A'} <br>Cidade: ${candidato.city || 'N/A'} <br>Vulnerabilidade Social: ${candidato.socialVulnerability || 'N/A'} <br>Idade: ${candidato.age || 'N/A'} anos <br>${candidato.about || ''}</p>
+                                <button class="custom-btn" onclick="redirectToVerPerfil('${candidato.id}')">Ver Perfil</button>
+                            </div>`;
+                        container.appendChild(div);
+                    }
+                });
+                
+            } catch (error) {
+                console.error('Erro ao buscar candidatos: ', error);
+            }
+        }
 
-    
-</div>
-
-<!-- Bootstrap JS e Popper.js para Dropdown -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
-
-<script>
-
-    function redirectToVerPerfil() {
-        window.location.href = "verperfil.html";
-    }
-</script>
-
+        function redirectToVerPerfil(id) {
+            window.location.href = "verperfil.html?id=" + id;
+        }
+    </script>
 </body>
 </html>
