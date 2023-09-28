@@ -42,7 +42,9 @@
 
     <script>
         async function addEscolaridade() {
-            const url = 'http://localhost:8080/mnt_job_vacancies/v1/person/651372ce51cb523688c59129/degree';
+            let id = localStorage.getItem('personId');
+
+            const url = `http://localhost:8080/mnt_job_vacancies/v1/person/${id}/degree`;
 
             const institution = document.getElementById('institution').value;
             const degree = document.getElementById('degree').value;

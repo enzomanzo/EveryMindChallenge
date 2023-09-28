@@ -81,7 +81,9 @@
                 steps: steps
             };
 
-            const url = 'http://localhost:8080/mnt_job_vacancies/v1/recruiter/65137a4c51cb523688c59134/vacancy';
+            let id = localStorage.getItem('recruiterId');
+            
+            const url = `http://localhost:8080/mnt_job_vacancies/v1/recruiter/${id}/vacancy`;
             
             fetch(url, {
                 method: 'POST',

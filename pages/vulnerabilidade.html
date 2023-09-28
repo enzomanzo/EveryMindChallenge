@@ -40,7 +40,9 @@
             const inputElement = document.getElementById('vulnerabilidadeInput');
             const vulnerability = inputElement.value;
 
-            const url = `http://localhost:8080/mnt_job_vacancies/v1/person/651372ce51cb523688c59129/social-vulnerability?socialVulnerability=${vulnerability}`;
+            let id = localStorage.getItem('personId');
+
+            const url = `http://localhost:8080/mnt_job_vacancies/v1/person/${id}/social-vulnerability?socialVulnerability=${vulnerability}`;
 
             try {
                 const response = await fetch(url, {

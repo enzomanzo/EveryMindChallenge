@@ -14,7 +14,9 @@
         });
 
         async function fetchSkills() {
-            const url = 'http://localhost:8080/mnt_job_vacancies/v1/person/651372ce51cb523688c59129/skills';
+            let id = localStorage.getItem('personId');
+
+            const url = `http://localhost:8080/mnt_job_vacancies/v1/person/${id}/skills`;
 
             try {
                 const response = await fetch(url);

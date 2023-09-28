@@ -46,7 +46,9 @@
         }
 
         async function fetchData() {
-            const url = "http://localhost:8080/mnt_job_vacancies/v1/recruiter/65137a4c51cb523688c59134/work-experience";
+            let id = localStorage.getItem('recruiterId');
+
+            const url = `http://localhost:8080/mnt_job_vacancies/v1/recruiter/${id}/work-experience`;
 
             try {
                 const response = await fetch(url);

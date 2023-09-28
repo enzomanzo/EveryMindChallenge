@@ -42,7 +42,9 @@
         document.getElementById('experience-form').addEventListener('submit', async function(e) {
             e.preventDefault(); // Prevents the default form submit behavior
 
-            const url = 'http://localhost:8080/mnt_job_vacancies/v1/person/651372ce51cb523688c59129/work-experience';
+            let id = localStorage.getItem('personId');
+
+            const url = `http://localhost:8080/mnt_job_vacancies/v1/person/${id}/work-experience`;
             const data = {
                 company: document.getElementById('company').value,
                 time: document.getElementById('time').value,

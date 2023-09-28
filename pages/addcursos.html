@@ -42,7 +42,9 @@
 
     <script>
         async function adicionarCurso() {
-            const url = 'http://localhost:8080/mnt_job_vacancies/v1/person/651372ce51cb523688c59129/course';
+            let id = localStorage.getItem('personId');
+
+            const url = `http://localhost:8080/mnt_job_vacancies/v1/person/${id}/course`;
             
             const institution = document.getElementById('institution').value;
             const course = document.getElementById('course').value;

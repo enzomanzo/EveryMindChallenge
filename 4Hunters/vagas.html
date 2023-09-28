@@ -65,7 +65,9 @@
         
         async function carregarVagas() {
             try {
-                const response = await fetch("http://localhost:8080/mnt_job_vacancies/v1/recruiter/65137a4c51cb523688c59134/vacancy");
+                let id = localStorage.getItem('recruiterId');
+            
+                const response = await fetch(`http://localhost:8080/mnt_job_vacancies/v1/recruiter/${id}/vacancy`);
                 if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
                 
                 const vagas = await response.json();

@@ -56,6 +56,8 @@
             })
             .then(response => response.json())
             .then(data => {
+                let id = data.id
+                localStorage.setItem('recruiterId', id);
                 window.location.href = "/4Hunters/experienciasRec.html";
             })
             .catch((error) => {
