@@ -74,7 +74,7 @@
                         div.className = 'col-lg-3 mb-4';
                         div.innerHTML = `
                             <div class="custom-div">
-                                <img src="${candidato.photo || '../images/default-photo.jpg'}" alt="Foto de ${candidato.name}">
+                                <img src="${candidato.photo || '../images/candidato1.jpg'}" alt="Foto de ${candidato.name}">
                                 <p>Nome: ${candidato.name} <br>Curso: ${candidato.coursesDTOS?.[0]?.course || 'N/A'} <br>Cidade: ${candidato.city || 'N/A'} <br>Vulnerabilidade Social: ${candidato.socialVulnerability || 'N/A'} <br>Idade: ${candidato.age || 'N/A'} anos <br>${candidato.about || ''}</p>
                                 <button class="custom-btn" onclick="redirectToVerPerfil('${candidato.id}')">Ver Perfil</button>
                             </div>`;
@@ -88,7 +88,8 @@
         }
 
         function redirectToVerPerfil(id) {
-            window.location.href = "verperfil.html?id=" + id;
+            localStorage.setItem("personDetailId", id)
+            window.location.href = "verperfil.html";
         }
     </script>
 </body>

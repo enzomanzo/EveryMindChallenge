@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/vagas.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <title>Document</title>
+    <title>Vagas</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -43,7 +43,6 @@
             <input type="text" class="form-control" placeholder="Buscar...">
         </div>
     </div>
-
     <div class="container mt-5">
         <div class="row" id="vacanciesRow">
             <!-- As vagas serão inseridas aqui -->
@@ -54,41 +53,41 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
     <script>
-        function redirectToDetalhesVaga() {
-            window.location.href = "verdetalhes.html";
+        function redirectToDetalhesVaga(event) {
+            const buttonClicked = event.target; // O botão que foi clicado
+            const vacancyId = buttonClicked.getAttribute('data-id'); // Pegando o ID da vaga
+            localStorage.setItem("vacancyDetailsId", vacancyId)
+            if(vacancyId) {
+                window.location.href = `verdetalhes.html`;
+            } else {
+                console.error('Vacancy ID não está disponível!');
+            }
         }
 
         async function loadVacancies() {
             try {
                 const response = await fetch('http://localhost:8080/mnt_job_vacancies/v1/vacancy');
                 if (!response.ok) throw new Error('Erro ao buscar vagas');
-                
                 const vacancies = await response.json();
                 const vacanciesRow = document.getElementById('vacanciesRow');
-                
                 vacancies.forEach(vacancy => {
                     const colDiv = document.createElement('div');
                     colDiv.className = 'col-lg-6 mb-4';
-
                     const customDiv = document.createElement('div');
                     customDiv.className = 'custom-div';
-
                     const img = document.createElement('img');
                     img.src = '../images/logo-removebg-preview.png';
-                    img.alt = 'Descrição da Imagem 1';
-
+                    img.alt = 'Logo da Empresa';
                     const p = document.createElement('p');
                     p.innerHTML = `<strong>Cargo:</strong> ${vacancy.role} <br><strong>Área:</strong> T.I <br><strong>Cidade:</strong> ${vacancy.locality}`;
-
                     const button = document.createElement('button');
                     button.className = 'custom-btn';
                     button.textContent = 'Detalhes';
+                    button.setAttribute('data-id', vacancy.id); // Adicionando data-id ao botão
                     button.onclick = redirectToDetalhesVaga;
-
                     customDiv.appendChild(img);
                     customDiv.appendChild(p);
                     customDiv.appendChild(button);
-
                     colDiv.appendChild(customDiv);
                     vacanciesRow.appendChild(colDiv);
                 });
