@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../4Hunters/Hunter-styles/candidatos.css">
+    <link rel="stylesheet" href="/recrutador/styles/candidatos.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <title>Document</title>
 </head>
@@ -11,7 +11,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img class="logo" src="../images/logo-removebg-preview.png" alt="">
+                <img class="logo" src="/images/logo-removebg-preview.png" alt="">
                 EveryMind
             </a>
             <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
@@ -21,9 +21,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="candidatos.html">Candidatos</a>
-                    <a class="nav-link" href="vagas.html">Vagas</a>
-                    <a class="nav-link" href="perfil.html">Perfil</a>
+                    <a class="nav-link active" aria-current="page" href="/recrutador/principal/candidato/candidatos.html">Candidatos</a>
+                    <a class="nav-link" href="/recrutador/principal/vaga/vagas.html">Vagas</a>
+                    <a class="nav-link" href="/recrutador/principal/perfil/perfil.html">Perfil</a>
                 </div>
             </div>
         </div>
@@ -47,8 +47,7 @@
 
     <div class="container mt-5">
         <div class="row" id="candidatosContainer">
-            <!-- As divs dos candidatos serão inseridas aqui pelo JavaScript -->
-        </div>
+    </div>
     </div>
   
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -74,7 +73,7 @@
                         div.className = 'col-lg-3 mb-4';
                         div.innerHTML = `
                             <div class="custom-div">
-                                <img src="${candidato.photo || '../images/candidato1.jpg'}" alt="Foto de ${candidato.name}">
+                                <img src="${candidato.photo || '/images/candidato1.jpg'}" alt="Foto de ${candidato.name}">
                                 <p>Nome: ${candidato.name} <br>Curso: ${candidato.coursesDTOS?.[0]?.course || 'N/A'} <br>Cidade: ${candidato.city || 'N/A'} <br>Vulnerabilidade Social: ${candidato.socialVulnerability || 'N/A'} <br>Idade: ${candidato.age || 'N/A'} anos <br>${candidato.about || ''}</p>
                                 <button class="custom-btn" onclick="redirectToVerPerfil('${candidato.id}')">Ver Perfil</button>
                             </div>`;
@@ -89,7 +88,7 @@
 
         function redirectToVerPerfil(id) {
             localStorage.setItem("personDetailId", id)
-            window.location.href = "verperfil.html";
+            window.location.href = "/recrutador/verperfilcadastrado.html";
         }
     </script>
 </body>
