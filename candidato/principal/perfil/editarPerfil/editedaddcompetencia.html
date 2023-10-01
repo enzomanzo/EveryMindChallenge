@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../styles/style-editedaddescolaridade.css">
+    <link rel="stylesheet" href="/candidato/styles/editedaddcompetencia.css">
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -17,7 +17,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img class="logo" src="../images/logo-removebg-preview.png" alt="">
+                <img class="logo" src="/images/logo-removebg-preview.png" alt="">
                 EveryMind
             </a>
             <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
@@ -27,9 +27,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="vagas.html">Vagas</a>
-                    <a class="nav-link" href="perfilb.html">Perfil</a>
-                    <a class="nav-link" href="">Sair</a>
+                    <a class="nav-link active" aria-current="page" href="/candidato/principal/vaga/vagas.html">Vagas</a>
+                    <a class="nav-link" href="/candidato/principal/perfil/perfil.html">Perfil</a>
+                    <a class="nav-link" href="/candidato/login.html">Sair</a>
                 </div>
             </div>
         </div>
@@ -37,26 +37,20 @@
 
     <div class="formulario">
         <div class="wrapper">
-            <h2>Adicionar Escolaridade</h2>
+            <h2>Adicionar Competência</h2>
             <form action="#">
                 <div class="input-box">
-                    <input type="text" placeholder="Instituição de Ensino" required>
+                    <input type="text" placeholder="Competência" required>
                 </div>
                 <div class="input-box">
-                    <input type="text" placeholder="Diploma" required>
-                </div>
-                <div class="input-box">
-                    <input type="text" placeholder="Curso" required>
-                </div>
-                <div class="input-box">
-                    <input type="text" placeholder="Término" required>
+                    <input type="text" placeholder="Grau de Competência" required>
                 </div>
                 <div class="input-box button-group">
-                    <input type="button" value="Adicionar" class="btn-adicionar"  onclick="redirectToEditarEscolaridade()">
+                    <input type="button" value="Adicionar" class="btn-adicionar"  onclick="redirectToEditarCompetencias()">
                 </div>
             </form>
         </div>
-        <input class="voltar" type="button" value="Voltar" onclick="redirectToProfile()">
+        <input class="voltar" type="button" value="Voltar" onclick="redirectToEditProfile()">
         
     </div>
 
@@ -66,11 +60,11 @@
         crossorigin="anonymous"></script>
 
         <script>
-            function redirectToEditarEscolaridade() {
-                window.location.href = "editarescolaridade.html";
-            }
-            function redirectToProfile() {
+            function redirectToEditProfile() {
                 window.location.href = "perfilb.html";
+            }
+            function redirectToEditarCompetencias() {
+                window.location.href = "editarcompetencia.html";
             }
         </script>
 </body>

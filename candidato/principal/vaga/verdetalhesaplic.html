@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/verdetalhesok.css">
+    <link rel="stylesheet" href="/candidato/styles/verdetalhesok.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <title>Document</title>
@@ -13,7 +13,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img class="logo" src="../images/logo-removebg-preview.png" alt="">
+                <img class="logo" src="/images/logo-removebg-preview.png" alt="">
                 EveryMind
             </a>
             <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
@@ -23,9 +23,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="candidatos.html">Candidatos</a>
-                    <a class="nav-link" href="vagas.html">Vagas</a>
-                    <a class="nav-link" href="perfil.html">Perfil</a>
+                    <a class="nav-link active" aria-current="page" href="/candidato/principal/vaga/vagas.html">Vagas</a>
+                    <a class="nav-link" href="/candidato/principal/perfil/perfil.html">Perfil</a>
+                    <a class="nav-link" href="/candidato/login.html">Sair</a>
                 </div>
             </div>
         </div>
@@ -33,8 +33,8 @@
     <div class="container-fluid mt-5 d-flex justify-content-center">
         <div class="col-lg-5 mb-4">
             <div class="custom-div text-center">
-                <a href="../pages/vagas.html" class="back-link" >Voltar</a>
-                <img src="../images/logo-removebg-preview.png" alt="Descrição da Imagem 1">
+                <a href="/candidato/principal/vaga/vagas.html" class="back-link" >Voltar</a>
+                <img src="/images/logo-removebg-preview.png" alt="Descrição da Imagem 1">
                 <h3>Inscrição feita com sucesso</h3>
                 <p>Apos se aplicar na vaga, o recrutador entrará em contato pelo e-mail cadastrado e você seguira o processo seletivo pelo e-mail.</p>
                 <button class="ok" onclick="redirectToVagas()" >Entendi</button>
@@ -54,7 +54,7 @@
 
 <script>
     function redirectToVagas() {
-        window.location.href = "vagas.html";
+        window.location.href = "/candidato/principal/vaga/vagas.html";
     }
 </script>
 

@@ -4,34 +4,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../styles/style-cursos.css">
+    <link rel="stylesheet" href="../styles/cursos.css">
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img class="logo" src="../images/logo-removebg-preview.png" alt="">
-                EveryMind
-            </a>
-            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
-                data-mdb-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="vagas.html">Vagas</a>
-                    <a class="nav-link" href="perfilb.html">Perfil</a>
-                    <a class="nav-link" href="">Sair</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
     <div class="formulario">
         <div class="wrapper">
             <h2>Editar Cursos</h2>
@@ -85,15 +64,15 @@
         }
 
         function redirectToCompetencias() {
-            window.location.href = "perfilb.html";
+            window.location.href = "/candidato/cadastro/competencias.html";
         }
 
         function redirectToEscolaridade() {
-            window.location.href = "escolaridade.html";
+            window.location.href = "/candidato/cadastro/escolaridade.html";
         }
 
         function redirectToAddCurso() {
-            window.location.href = "addcursos.html";
+            window.location.href = "/candidato/cadastro/addcursos.html";
         }
         
         // Chama a função loadCursos quando a página é carregada

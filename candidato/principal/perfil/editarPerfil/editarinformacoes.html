@@ -1,11 +1,10 @@
-
 <!doctype html>
 <html lang="pt-br">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../styles/style-add-experiencia-rec.css">
+    <link rel="stylesheet" href="/candidato/styles/signin.css">
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -17,7 +16,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img class="logo" src="../images/logo-removebg-preview.png" alt="">
+                <img class="logo" src="/images/logo-removebg-preview.png" alt="">
                 EveryMind
             </a>
             <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
@@ -27,47 +26,58 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="vagas.html">Vagas</a>
-                    <a class="nav-link" href="perfilb.html">Perfil</a>
-                    <a class="nav-link" href="">Sair</a>
+                    <a class="nav-link active" aria-current="page" href="/candidato/principal/vaga/vagas.html">Vagas</a>
+                    <a class="nav-link" href="/candidato/principal/perfil/perfil.html">Perfil</a>
+                    <a class="nav-link" href="/candidato/login.html">Sair</a>
                 </div>
             </div>
         </div>
     </nav>
 
+
     <div class="formulario">
         <div class="wrapper">
-            <h2>Adicionar Experiência</h2>
+            <h2>Informações Pessoais</h2>
             <form action="#">
                 <div class="input-box">
-                    <input type="text" placeholder="Empresa" required>
+                    <input type="text" placeholder="Nome" required>
                 </div>
                 <div class="input-box">
-                    <input type="text" placeholder="Cargo" required>
+                    <input type="text" placeholder="Nome Social" required>
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="Idade" required>
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="Telefone com DDD" required>
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="Cidade" required>
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="Estado" required>
                 </div>
                 <div class="input-box button-group">
-                    <input type="button" value="Adicionar" class="btn-adicionar"  onclick="redirectToExperienciaRec()">
+                    <input type="button" value="Voltar" onclick="redirectToProfile()"> <!--fazer o mesmo do botao abaixo quando criar o login -->
+                    <input type="button" value="Confirmar" onclick="redirectToProfile()">
                 </div>
+
             </form>
         </div>
-        <input class="voltar" type="button" value="Voltar" onclick="redirectToProfile()">
-        
     </div>
 
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
 
         <script>
-            function redirectToExperienciaRec() {
-                window.location.href = "editarexperienciaCan.html";
-            }
             function redirectToProfile() {
                 window.location.href = "perfilb.html";
             }
+           
         </script>
 </body>
 
 </html>
-

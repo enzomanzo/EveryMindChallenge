@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../styles/style-add-escolaridade.css">
+    <link rel="stylesheet" href="../styles/add-escolaridade.css">
     <title>Adicionar Escolaridade</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -31,9 +31,11 @@
                 <div class="input-box button-group">
                     <input type="button" value="Adicionar" class="btn-adicionar" onclick="addEscolaridade()">
                 </div>
+                <div class="input-box button-group">
+                    <input type="button" value="Voltar" class="btn-voltar" onclick="redirectToEscolaridade()">
+                </div>
             </form>
         </div>
-        <input class="voltar" type="button" value="Voltar" onclick="redirectToEscolaridade()">
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
@@ -80,7 +82,7 @@
         }
 
         function redirectToEscolaridade() {
-            window.location.href = "escolaridade.html";
+            window.location.href = "/candidato/cadastro/escolaridade.html";
         }
     </script>
 </body>
