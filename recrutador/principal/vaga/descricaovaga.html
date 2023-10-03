@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/recrutador/styles/descricaovaga.css">
     <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 
 <body>
@@ -24,7 +25,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="/recrutador/principal/candidato/candidatos.html">Candidatos</a>
+                    <a class="nav-link active" aria-current="page"
+                        href="/recrutador/principal/candidato/candidatos.html">Candidatos</a>
                     <a class="nav-link" href="/recrutador/principal/vaga/vagas.html">Vagas</a>
                     <a class="nav-link" href="/recrutador/principal/perfil/perfil.html">Perfil</a>
                 </div>
@@ -64,7 +66,9 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+    </script>
 
     <script>
         function postVacancy() {
@@ -73,7 +77,7 @@
             const descriptionInput = document.getElementById('descriptionInput').value;
             const requirementsInput = document.getElementById('requirementsInput').value;
             const steps = document.getElementById('stepsText').value;
-            
+
             const data = {
                 role: roleInput,
                 locality: localityInput,
@@ -83,27 +87,30 @@
             };
 
             let id = localStorage.getItem('recruiterId');
-            
+
             const url = `http://localhost:8080/mnt_job_vacancies/v1/recruiter/${id}/vacancy`;
-            
+
             fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-                
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-                redirectToVagas();
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+
+                })
+                .then(response => {
+                    if (response.status === 201) {
+                        redirectToVagas();
+                    } else {
+                        throw new Error('Não foi possível criar a vaga');
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
         }
-        
+
+
         function redirectToVagas() {
             window.location.href = "/recrutador/principal/vaga/vagas.html";
         }

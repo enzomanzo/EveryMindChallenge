@@ -22,8 +22,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="/recrutador/principal/candidato/candidatos.html">Candidatos</a>
-                    <a class="nav-link" href="/recrutador/principal/vaga/vagas.html">Vagas</a>
+                    <a class="nav-link"  href="/recrutador/principal/candidato/candidatos.html">Candidatos</a>
+                    <a class="nav-link active" aria-current="page" href="/recrutador/principal/vaga/vagas.html">Vagas</a>
                     <a class="nav-link" href="/recrutador/principal/perfil/perfil.html">Perfil</a>
                 </div>
             </div>
@@ -82,7 +82,7 @@
                                 <strong>Localidade:</strong> ${vaga.locality || 'N/A'} <br>
                                 <strong>Descrição:</strong> ${vaga.description || 'N/A'} 
                             </p>
-                            <button class="custom-btn" onclick="redirectToCandidatosCadastrados()">Candidatos</button>
+                            <button class="custom-btn" onclick="redirectToCandidatosCadastrados('${vaga.id}')">Candidatos</button>
                         </div>`;
                     container.appendChild(div);
                 });
@@ -96,8 +96,11 @@
             window.location.href = "verperfil.html";
         }
         
-        function redirectToCandidatosCadastrados() {
-            window.location.href = "candidatoscadastrados.html";
+        function redirectToCandidatosCadastrados(id) {
+            console.log(id)
+            localStorage.setItem("vagaDetailId", id)
+
+            window.location.href = "vercandidatosvagas.html";
         }
         
         function redirectToVagas() {
