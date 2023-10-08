@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/recrutador/styles/verperfilcadastrado.css">
+    <link rel="stylesheet" href="candidatoStyles/verperfilcadastrado.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
     <title>Document</title>
 </head>
 
@@ -14,8 +16,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img class="logo" src="/images/logo-removebg-preview.png" alt="">
-                EveryMind
+                <img class="logo" src="/images/mountain logo.png" alt="">
+                Blizzard
             </a>
             <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
                 data-mdb-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
@@ -31,11 +33,11 @@
             </div>
         </div>
     </nav>
-    <div class="container-fluid mt-5 d-flex justify-content-center">
-        <div class="col-lg-5 mb-4">
+    <div class="container-fluid mt-5 d-flex">
+        <div class="col-lg-5 mb-4 " id="primeiro">
             <div class="custom-div text-center">
                 <a href="../candidato/candidatos.html" class="back-link">Voltar</a>
-                <img id="profilePhoto" src="/images/default.jpg" alt="Profile Photo">
+                <img id="profilePhoto" src="/images/perfil.png" alt="Profile Photo">
                 <p id="profileInfo">Nome: N/A <br>Email: N/A <br>Telefone: N/A</p>
                 <div id="profileLocation" class="location-text">N/A</div>
             </div>
@@ -64,7 +66,19 @@
                 <h2 class="text-left">Experiência de Trabalho</h2>
                 <div id="workExperienceContainer">N/A</div>
             </div>
+            
         </div>
+        <div class="col-lg-5 mb-4 fases-container">
+            <h3>Fases Do Candidato</h3>
+            <ul>
+                <li>Inscrição <span class="status-started">Iniciado</span></li>
+                <li>Testes <span class="status-started">Iniciado</span></li>
+                <li>Entrevista <span class="status-not-started">Não iniciado</span></li>
+                <li>Devolutiva <span class="status-not-started">Não iniciado</span></li>
+            </ul>
+        </div>
+        
+    </div>
     </div>
 
     <!-- Bootstrap JS e Popper.js para Dropdown -->

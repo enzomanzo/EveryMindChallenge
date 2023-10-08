@@ -4,6 +4,7 @@
     transform: translate(-4px);
     margin-left: 10px;
     margin-top: -15px;
+    filter: invert(1);
 }
 
 .navbar-brand {
@@ -20,7 +21,7 @@
     padding: 6px 12px;
     border: none;
     border-radius: 4px;
-    background-color: #1fdf9f;
+    background-color: rgb(35, 119, 175, 0.178);
     color: #fff;
     cursor: pointer;
     display: block;
@@ -125,9 +126,12 @@ p{
 }
 
 .ok{
-    background-color: #1fdf9f;
+    background-color: rgba(10, 105, 168, 0.63);
     border: 1px solid white;
     padding: 5px;
     width: 30%;
     font-size: 20px;
+}
+.ok:hover{
+    color: white;
 }

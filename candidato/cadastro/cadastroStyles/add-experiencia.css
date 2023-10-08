@@ -159,7 +159,7 @@ cursor: pointer;
   font-size: 17px;
   border: 1.5px solid #C7BEBE;
   border-radius: 6px;
-  resize: vertical; /* permite ao usuário ajustar a altura, mas não a largura */
+  resize: none; /* permite ao usuário ajustar a altura, mas não a largura */
 }
 
 .wrapper form .input-box {

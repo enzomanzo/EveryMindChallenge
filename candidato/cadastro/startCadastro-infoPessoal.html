@@ -19,10 +19,8 @@
                     <input type="text" id="name" placeholder="Nome" required>
                 </div>
                 <div class="input-box">
-                    <input type="text" id="about" placeholder="Sobre" required>
-                </div>
-                <div class="input-box">
-                    <input type="text" id="phoneNumber" placeholder="(DD) Telefone" maxlength="14" oninput="formatPhoneNumber(event)" required>
+                    <input type="text" id="phoneNumber" placeholder="(DD) Telefone" maxlength="14"
+                        oninput="formatPhoneNumber(event)" required>
                 </div>
                 <div class="input-box">
                     <input type="text" id="city" placeholder="Cidade" required>
@@ -34,14 +32,14 @@
                     <input type="number" id="age" placeholder="Idade" required>
                 </div>
                 <div class="input-box">
-                    <input type="text" id="email" placeholder="Email" required>
+                    <textarea id="description" class="input-desc"
+                        placeholder="Conte um pouco sobre você, suas ambições e sua experiencia profissional"
+                        required></textarea>
                 </div>
-                <div class="input-box">
-                    <input type="password" id="password" placeholder="Senha" required>
-                </div>
+                <div class="spacer"></div>
                 <div class="input-box button-group">
                     <input type="button" value="Voltar" onclick="redirectToSignIn()">
-                    <input type="button" value="Próximo" onclick="submitPersonalInfo()">  <!--alterar para "submitPersonalInfo()" quando utilizar API e juntar as validacoes -->
+                    <input type="button" value="Próximo" onclick="submitPersonalInfo()">
                 </div>
             </form>
         </div>
@@ -52,94 +50,91 @@
         crossorigin="anonymous"></script>
 
     <script>
-         async function submitPersonalInfo() {
+        async function submitPersonalInfo() {
 
             validateAndProceedToCompetencias()
-             const url = 'http://localhost:8080/mnt_job_vacancies/v1/person';
+            const url = 'http://localhost:8080/mnt_job_vacancies/v1/person';
 
-             const body = {
-                 name: document.getElementById('name').value,
-                 email: document.getElementById('email').value,
-                 password: document.getElementById('password').value,
-                 about: document.getElementById('about').value,
-                 phoneNumber: document.getElementById('phoneNumber').value,
-                 city: document.getElementById('city').value,
-                 state: document.getElementById('state').value,
-                 age: parseInt(document.getElementById('age').value)
-             };
-
-             try {
-                 const response = await fetch(url, {
-                     method: 'POST',
-                     headers: {
-                         'Content-Type': 'application/json'
-                     },
-                     body: JSON.stringify(body)
-                 })
-
-                 if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-
-                 const data = await response.json();
-                 console.log(data);
-                 const personId = data.id;
-
-                 localStorage.setItem('personId', personId);
-
-                 redirectToCompetencias();
-
-             } catch (error) {
-                 console.error('Fetch failed: ', error);
-             }
-         }
-
-    function validateAndProceedToCompetencias() {
-    let name = document.getElementById('name').value;
-    let about = document.getElementById('about').value;
-    let phoneNumber = document.getElementById('phoneNumber').value;
-    let city = document.getElementById('city').value;
-    let state = document.getElementById('state').value;
-    let age = document.getElementById('age').value;
-    let email = document.getElementById('email').value;
-    let password = document.getElementById('password').value;
-
-    // Verificar idade
-    if (parseInt(age) <= 10 || isNaN(age)) {
-        alert("Por favor, insira uma idade válida.");
-        return;
-    }
-
-    // Verificar se algum campo está vazio
-    if (!name.trim() || !about.trim() || !phoneNumber.trim() || !city.trim() || !state.trim() || !age.trim() || !email.trim() || !password.trim()) {
-        alert("Por favor, preencha todos os campos.");
-        return;
-    }
+            const body = {
+                name: document.getElementById('name').value,
+                phoneNumber: document.getElementById('phoneNumber').value,
+                city: document.getElementById('city').value,
+                state: document.getElementById('state').value,
+                age: parseInt(document.getElementById('age').value),
+                about: document.getElementById('description').value  // Troquei 'about' por 'description'
+            };
 
 
-}
-        
-function formatPhoneNumber(event) {
-    let value = event.target.value.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(body)
+                })
 
-    if (!value) { // Se o valor estiver vazio
-        event.target.value = "";
-        return;
-    }
+                if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
-    if (value.length <= 2) {
-        value = '(' + value;
-    } else if (value.length <= 3) {
-        value = '(' + value + ')';
-    } else if (value.length <= 6) {
-        value = '(' + value.slice(0, 2) + ')' + value.slice(2, 6);
-    } else {
-        value = '(' + value.slice(0, 2) + ')' + value.slice(2, 6) + '-' + value.slice(6);
-    }
+                const data = await response.json();
+                console.log(data);
+                const personId = data.id;
 
-    event.target.value = value;
-}
+                localStorage.setItem('personId', personId);
+
+                redirectToCompetencias();
+
+            } catch (error) {
+                console.error('Fetch failed: ', error);
+            }
+        }
+
+        function validateAndProceedToCompetencias() {
+            let name = document.getElementById('name').value;
+            let about = document.getElementById('about').value;
+            let phoneNumber = document.getElementById('phoneNumber').value;
+            let city = document.getElementById('city').value;
+            let state = document.getElementById('state').value;
+            let age = document.getElementById('age').value;
+
+            // Verificar idade
+            if (parseInt(age) <= 10 || isNaN(age)) {
+                alert("Por favor, insira uma idade válida.");
+                return;
+            }
+
+            // Verificar se algum campo está vazio
+            if (!name.trim() || !about.trim() || !phoneNumber.trim() || !city.trim() || !state.trim() || !age.trim()) {
+                alert("Por favor, preencha todos os campos.");
+                return;
+            }
+
+
+        }
+
+        function formatPhoneNumber(event) {
+            let value = event.target.value.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
+
+            if (!value) { // Se o valor estiver vazio
+                event.target.value = "";
+                return;
+            }
+
+            if (value.length <= 2) {
+                value = '(' + value;
+            } else if (value.length <= 3) {
+                value = '(' + value + ')';
+            } else if (value.length <= 6) {
+                value = '(' + value.slice(0, 2) + ')' + value.slice(2, 6);
+            } else {
+                value = '(' + value.slice(0, 2) + ')' + value.slice(2, 6) + '-' + value.slice(6);
+            }
+
+            event.target.value = value;
+        }
 
         function redirectToCompetencias() {
-            window.location.href = "/candidato/cadastro/competencias.html";
+            window.location.href = "competencias.html";
         }
 
         function redirectToSignIn() {

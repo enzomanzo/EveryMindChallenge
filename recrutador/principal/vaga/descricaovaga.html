@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/recrutador/styles/descricaovaga.css">
+    <link rel="stylesheet" href="vagasStyles/descricaovaga.css">
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -15,8 +15,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img class="logo" src="/images/logo-removebg-preview.png" alt="">
-                EveryMind
+                <img class="logo" src="/images/mountain logo.png" alt="">
+                Blizzard
             </a>
             <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
                 data-mdb-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
@@ -25,9 +25,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page"
+                    <a class="nav-link" aria-current="page"
                         href="/recrutador/principal/candidato/candidatos.html">Candidatos</a>
-                    <a class="nav-link" href="/recrutador/principal/vaga/vagas.html">Vagas</a>
+                    <a class="nav-link active" href="/recrutador/principal/vaga/vagas.html">Vagas</a>
                     <a class="nav-link" href="/recrutador/principal/perfil/perfil.html">Perfil</a>
                 </div>
             </div>
@@ -36,6 +36,7 @@
 
 
     <div class="formulario">
+        <div class="content-container">
         <div class="wrapper">
             <h2>Descrição Vaga</h2>
             <form id="descricaoVagaForm">
@@ -49,27 +50,134 @@
                     <input type="text" id="localityInput" placeholder="Area" required>
                 </div>
                 <div class="input-box">
-                    <input type="text" id="descriptionInput" placeholder="Descrição" required>
+                    <input type="text" id="roleInput" placeholder="Localidade" required>
                 </div>
                 <div class="input-box">
-                    <input type="text" id="roleInput" placeholder="Localidade" required>
+                    <input id="descriptionInput" class="description-input" placeholder="Descrição" required>
                 </div>
                 <div class="input-box">
                     <input type="text" id="requirementsInput" placeholder="Requisitos" required>
                 </div>
+                
                 <div class="input-box">
-                    <input type="text" id="stepsText" placeholder="Fases" required>
-                </div>
-                <div class="fases-section">
-                </div>
-                <div class="input-box button-group">
-                    <input type="button" value="Criar" class="btn-adicionar" onclick="postVacancy()">
-                </div>
-                <div class="input-box button-group">
-                    <input type="button" value="Voltar" class="btn-voltar" onclick="redirectToVagas()">
-                </div>
+                    <div class="row">
+                        <h4 class="provas">Provas</h4>
+                        <p>Logica</p>
+                        <div class="col-md-6 checkbox-container">
+                            <input type="checkbox" id="option1" name="vulnerabilidade" value="opcao1">
+                            <label for="option1">Fase 1</label>
+                        </div>
+                        <div class="col-md-6 checkbox-container">
+                            <input type="checkbox" id="option2" name="vulnerabilidade" value="opcao2">
+                            <label for="option2">Fase 2</label>
+                        </div>
+                        <div class="col-md-6 checkbox-container">
+                            <input type="checkbox" id="option3" name="vulnerabilidade" value="opcao3">
+                            <label for="option3">Fase 3</label>
+                        </div>
+                        <div class="col-md-6 checkbox-container">
+                            <input type="checkbox" id="option4" name="vulnerabilidade" value="opcao4">
+                            <label for="option4">Fase 4</label>
+                        </div>
+                        <p>Matematica</p>
+                        <div class="col-md-6 checkbox-container">
+                            <input type="checkbox" id="option5" name="vulnerabilidade" value="opcao5">
+                            <label for="option5">Fase 1</label>
+                        </div>
+                        <div class="col-md-6 checkbox-container">
+                            <input type="checkbox" id="option6" name="vulnerabilidade" value="opcao6">
+                            <label for="option6">Fase 2</label>
+                        </div>
+                        <div class="col-md-6 checkbox-container">
+                            <input type="checkbox" id="option7" name="vulnerabilidade" value="opcao7">
+                            <label for="option7">Fase 3</label>
+                        </div>
+                        <div class="col-md-6 checkbox-container">
+                            <input type="checkbox" id="option8" name="vulnerabilidade" value="opcao8">
+                            <label for="option8">Fase 4</label>
+                        </div>
+                        <p>Portugues</p>
+                        <div class="col-md-6 checkbox-container">
+                            <input type="checkbox" id="opcao9" name="vulnerabilidade" value="opcao9">
+                            <label for="opcao9">Fase 1</label>
+                        </div>
+                        <div class="col-md-6 checkbox-container">
+                            <input type="checkbox" id="opcao10" name="vulnerabilidade" value="opcao10">
+                            <label for="opcao10">Fase 2</label>
+                        </div>
+                        <div class="col-md-6 checkbox-container">
+                            <input type="checkbox" id="opcao11" name="vulnerabilidade" value="opcao11">
+                            <label for="opcao11">Fase 3</label>
+                        </div>
+                        <div class="col-md-6 checkbox-container">
+                            <input type="checkbox" id="opcao12" name="vulnerabilidade" value="opcao12">
+                            <label for="opcao12">Fase 4</label>
+                        </div>
+                        <p>Ingles</p>
+                        <div class="col-md-6 checkbox-container">
+                            <input type="checkbox" id="opcao13" name="vulnerabilidade" value="opcao13">
+                            <label for="opcao13">Fase 1</label>
+                        </div>
+                        <div class="col-md-6 checkbox-container">
+                            <input type="checkbox" id="opcao14" name="vulnerabilidade" value="opcao14">
+                            <label for="opcao14">Fase 2</label>
+                        </div>
+                        <div class="col-md-6 checkbox-container">
+                            <input type="checkbox" id="opcao15" name="vulnerabilidade" value="opcao15">
+                            <label for="opcao15">Fase 3</label>
+                        </div>
+                        <div class="col-md-6 checkbox-container">
+                            <input type="checkbox" id="opcao16" name="vulnerabilidade" value="opcao16">
+                            <label for="opcao16">Fase 4</label>
+                        </div>
+                        <p>Espanhol</p>
+                        <div class="col-md-6 checkbox-container">
+                            <input type="checkbox" id="opcao17" name="vulnerabilidade" value="opcao17">
+                            <label for="opcao17">Fase 1</label>
+                        </div>
+                        <div class="col-md-6 checkbox-container">
+                            <input type="checkbox" id="opcao18" name="vulnerabilidade" value="opcao18">
+                            <label for="opcao18">Fase 2</label>
+                        </div>
+                        <div class="col-md-6 checkbox-container">
+                            <input type="checkbox" id="opcao19" name="vulnerabilidade" value="opcao19">
+                            <label for="opcao19">Fase 3</label>
+                        </div>
+                        <div class="col-md-6 checkbox-container">
+                            <input type="checkbox" id="opcao20" name="vulnerabilidade" value="opcao20">
+                            <label for="opcao20">Fase 4</label>
+                        </div>
+                        <p>Office</p>
+                        <div class="col-md-6 checkbox-container">
+                            <input type="checkbox" id="opcao21" name="vulnerabilidade" value="opcao21">
+                            <label for="opcao21">Fase 1</label>
+                        </div>
+                        <div class="col-md-6 checkbox-container">
+                            <input type="checkbox" id="opcao22" name="vulnerabilidade" value="opcao22">
+                            <label for="opcao22">Fase 2</label>
+                        </div>
+                        <div class="col-md-6 checkbox-container">
+                            <input type="checkbox" id="opcao23" name="vulnerabilidade" value="opcao23">
+                            <label for="opcao23">Fase 3</label>
+                        </div>
+                        <div class="col-md-6 checkbox-container">
+                            <input type="checkbox" id="opcao24" name="vulnerabilidade" value="opcao24">
+                            <label for="opcao24">Fase 4</label>
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" id="vulnerabilidadeOutros" placeholder="Outros: Coloque outras fases separadas por virgula" style="margin-top: 10px;">
+                    </div>
+                    
+                    <div class="input-box button-group">
+                        <input type="button" value="Criar" class="btn-adicionar" onclick="postVacancy()">
+                    </div>
+                    <div class="input-box button-group">
+                        <input type="button" value="Voltar" class="btn-voltar" onclick="redirectToVagas()">
+                    </div>
             </form>
         </div>
+    </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"

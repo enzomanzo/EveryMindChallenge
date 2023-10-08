@@ -32,7 +32,16 @@ body {
     height: calc(100vh - 56px); /* Supondo que seu navbar tenha uma altura fixa de 56px; ajuste conforme necessário */
     flex-direction: column;
 }
+
+.fields-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;  /* Distribui uniformemente os espaços entre os campos de entrada */
+}
 .wrapper {
+    display: flex;
+    flex-direction: column; /* Organiza os itens em uma coluna */
     position: relative;
     width: 600px; /* Ajuste este valor conforme desejar */
     margin: 0 auto; /* Centraliza o formulário */
@@ -40,6 +49,12 @@ body {
     padding: 34px;
     border-radius: 6px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+.input-box {
+  flex: 1; /* Preenche o espaço disponível */
+}
+.button-group {
+  margin-top: auto; /* Empurra os botões para a parte inferior */
 }
 .wrapper h2{
   position: relative;
@@ -65,6 +80,18 @@ body {
   margin: 18px 0;
 }
 
+.input-box textarea.input-desc {
+  height: 150px;  /* Aumente este valor conforme desejado */
+  width: 100%;
+  padding: 10px;
+  font-size: 17px;
+  border: 1.5px solid #C7BEBE;
+  border-radius: 6px;
+  resize: none; /* permite ao usuário ajustar a altura, mas não a largura */
+}
+.spacer {
+  padding: 20px 0;  /* Aumente este valor se necessário */
+}
 
 form .input-box input{
   height: 100%;
@@ -133,4 +160,13 @@ form .text h3 a:hover{
 
 .button-group input:hover {
     background: rgba(30, 92, 134, 0.836);
+}
+
+.input-box textarea.input-desc {
+  height: 100px;  /* ou qualquer altura inicial que você desejar */
+  width: 100%;
+  padding: 10px;
+  font-size: 17px;
+  border: 1.5px solid #C7BEBE;
+  border-radius: 6px; /* permite ao usuário ajustar a altura, mas não a largura */
 }

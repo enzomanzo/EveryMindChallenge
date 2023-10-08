@@ -25,8 +25,8 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link"  href="/recrutador/principal/candidato/candidatos.html">Candidatos</a>
-                    <a class="nav-link active" aria-current="page" href="/recrutador/principal/vaga/vagas.html">Vagas</a>
-                    <a class="nav-link" href="/recrutador/principal/perfil/perfil.html">Perfil</a>
+                    <a class="nav-link" aria-current="page" href="/recrutador/principal/vaga/vagas.html">Vagas</a>
+                    <a class="nav-link active" href="/recrutador/principal/perfil/perfil.html">Perfil</a>
                 </div>
             </div>
         </div>
@@ -47,9 +47,7 @@
                 <h2 class="text-left">Competências</h2>
             </div>
         </div>
-        <div class="d-flex justify-content-end"> <!-- Adicionado uma div com d-flex e justify-content-end -->
-            <a href="/recrutador/principal/perfil/perfil.html">Voltar</a>
-        </div>
+
         </div>
     </div>
 
@@ -62,8 +60,8 @@
                 .then(data => {
                     const personalDataDiv = document.getElementById('personalData');
                     personalDataDiv.innerHTML = `
-                        <a href="/recrutador/principal/candidatos.html" class="back-link" >Voltar</a>
-                        <img src="/images/candidato1.jpg" alt="Foto do Candidato">
+                        <a href="perfil.html" class="back-link" >Voltar</a>
+                        <img src="/images/perfil.png" alt="Foto do Candidato">
                         <p>Nome: ${data.name} <br>Email: ${data.email} <br>${data.phoneNumber}</p>
                         <div class="location-text">${data.city} - ${data.state}</div>
                     `;

@@ -4,6 +4,7 @@
     transform: translate(-4px);
     margin-left: 10px;
     margin-top: -15px;
+    filter: invert(1);
 }
 .navbar-brand{
     font-weight: 500;
@@ -19,8 +20,10 @@
 
 .navbar{
     width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1030; /* Um valor elevado para garantir que a navbar sempre fique acima dos outros elementos */
 }
-
 
 
 body {
@@ -34,9 +37,11 @@ body {
 .formulario {
     display: flex;
     justify-content: center;
-    align-items: center;
+    padding-top: 45%;
+    align-items: flex-start; /* Modificando de center para flex-start */
     height: calc(100vh - 56px); /* Supondo que seu navbar tenha uma altura fixa de 56px; ajuste conforme necessário */
     flex-direction: column;
+    
 }
 .wrapper {
     position: relative;
@@ -46,6 +51,8 @@ body {
     padding: 34px;
     border-radius: 6px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    height: 1500px;
+    margin-bottom: 40px;
 }
 .wrapper h2{
   position: relative;
@@ -61,7 +68,7 @@ body {
   height: 3px;
   width: 65px;
   border-radius: 12px;
-  background: #1fdf9f;
+  background: rgb(35, 119, 175, 0.178);
 }
 .wrapper form{
   margin-top: 30px;
@@ -70,7 +77,26 @@ body {
   height: 52px;
   margin: 18px 0;
 }
+.input-box input[type="checkbox"] {
+  display: none; /* Oculta o checkbox padrão */
+}
+/* Estilo "falso" para o checkbox */
+.input-box label:before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(42, 133, 194, 0.836);
+  border-radius: 4px;
+  margin-right: 10px;
+  transition: background 0.3s;
+}
 
+/* Estilo quando o checkbox é selecionado */
+.input-box input[type="checkbox"]:checked + label:before {
+  background: rgba(42, 133, 194, 0.836) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8"><path fill="white" d="M6.293 0.293L3 3.586 1.707 2.293 0 4l3 3 6-6z"></path></svg>') no-repeat center center;
+  background-size: 60% 60%;
+}
 
 form .input-box input{
   height: 100%;
@@ -87,7 +113,7 @@ form .input-box input{
 }
 .input-box input:focus,
 .input-box input:valid{
-  border-color: #1fdf9f;
+  border-color: rgb(35, 119, 175, 0.178);
 }
 form .policy{
   display: flex;
@@ -103,11 +129,11 @@ form h3{
   color: #fff;
   letter-spacing: 1px;
   border: none;
-  background: #1fdf9f;
+  background: rgb(35, 119, 175, 0.178);
   cursor: pointer;
 }
 .input-box.button input:hover{
-  background: #1fdf9f;
+  background: rgb(35, 119, 175, 0.178);
 }
 form .text h3{
  color: #333;
@@ -115,7 +141,7 @@ form .text h3{
  text-align: center;
 }
 form .text h3 a{
-  color: #1fdf9f;
+  color: rgb(35, 119, 175, 0.178);
   text-decoration: none;
 }
 form .text h3 a:hover{
@@ -124,20 +150,28 @@ form .text h3 a:hover{
 
 
 .button-group input {
-    margin: 0 5px;
+    margin-top: 40px;
     color: #fff;
     letter-spacing: 1px;
     border: none;
-    background: #1fdf9f;
+    background: rgba(35, 119, 175, 0.822);
     cursor: pointer;
     width: 150px; /* Defina a largura desejada aqui */
 }
 
-
-.button-group input:hover {
-    background: #1fdf9f;
+.provas{
+  color: rgba(35, 119, 175, 0.822);
+  text-align: center;
+  font-weight: bold;
 }
 
+.row p {
+  color: #3e7bb49f;
+  font-weight: 600;
+}
+.button-group input:hover {
+    background: rgba(35, 119, 175, 0.582);
+}
 .voltar {
     border: 1px solid rgb(124, 124, 124);
     background-color: rgb(206, 206, 206);
@@ -166,7 +200,6 @@ form .text h3 a:hover{
     margin-bottom: 8px;
     font-weight: bold;
 }
-
 .checkbox-container label {
     margin-left: 8px;
 }

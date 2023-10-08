@@ -30,7 +30,7 @@ body {
     padding: 6px 12px;
     border: none;
     border-radius: 4px;
-    background-color: #1fdf9f;
+    background-color: rgba(35, 119, 175, 0.753);
     color: #fff;
     cursor: pointer;
     position: absolute;
@@ -39,7 +39,7 @@ body {
 }
 
 .custom-btn:hover {
-    background-color: #555;
+    background-color: #3489d8;
 }
 
 .custom-div img {
