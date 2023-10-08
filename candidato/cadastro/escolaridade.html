@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="cadastroStyles/escolaridade.css">
+    <title>Editar Escolaridade</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="formulario">
+        <div class="wrapper">
+            <h2>Editar Escolaridade</h2>
+            <form action="#">
+                <div class="lista-competencias">
+                    <div id="degree-info">
+                        <!-- Aqui serão inseridas as informações da requisição -->
+                    </div>
+                </div>
+                <div class="input-box button-group">
+                    <input type="button" value="Voltar" onclick="redirectToCursos()">
+                    <input type="button" value="Próximo" onclick="redirectToExperiencia()">
+                    <input class="plus" type="button" value="+" onclick="redirectToAddEscolaridade()">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            let id = localStorage.getItem('personId');
+
+            const url = `http://localhost:8080/mnt_job_vacancies/v1/person/${id}/degree`;
+            try {
+                const response = await fetch(url);
+                if(response.ok) {
+                    const data = await response.json();
+                    document.getElementById('degree-info').innerHTML = data.map(item => `
+                        <div class="block">
+                            <label class="titulo">${item.institution}</label>
+                            <p class="descricao">${item.degree} - ${item.course}</p>
+                            <p class="descricao">Término em ${item.end}</p>
+                        </div>
+                    `).join('');
+                } else {
+                    console.error('Erro ao buscar escolaridade:', response.statusText);
+                }
+            } catch(error) {
+                console.error('Erro ao fazer request:', error);
+            }
+        });
+
+        function redirectToCursos() {
+            window.location.href = "/candidato/cadastro/cursos.html";
+        }
+
+        function redirectToExperiencia() {
+            window.location.href = "/candidato/cadastro/experiencia.html";
+        }
+
+        function redirectToAddEscolaridade() {
+            window.location.href = "/candidato/cadastro/addescolaridade.html";
+        }
+    </script>
+</body>
+
+</html>

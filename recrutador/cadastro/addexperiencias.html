@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="cadastroStyles/add-experiencias.css">
+    <title>Adicionar Experiência</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="formulario">
+        <div class="wrapper">
+            <h2>Adicionar Experiência</h2>
+            <form id="experience-form" action="#">
+                <div class="input-box">
+                    <input type="text" id="company" placeholder="Empresa" required>
+                </div>
+                <div class="input-box">
+                    <input type="text" id="role" placeholder="Cargo" required>
+                </div>
+                <div class="input-box button-group">
+                    <input type="button" value="Adicionar" class="btn-adicionar" onclick="addExperience()">
+                </div>
+                <div class="input-box button-group">
+                    <input type="button" value="Voltar" class="btn-voltar" onclick="redirectToExperiencia()">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+    <script>
+async function addExperience() {
+    const company = document.getElementById('company').value;
+    const role = document.getElementById('role').value;
+
+    // Verificar se algum campo está vazio
+    if (!company.trim() || !role.trim()) {
+        alert("Por favor, preencha todos os campos da experiência.");
+        return;
+    }
+
+    let id = localStorage.getItem('recruiterId');
+    const url = `http://localhost:8080/mnt_job_vacancies/v1/recruiter/${id}/work-experience`;
+
+    const body = {
+        company: company,
+        role: role,
+        time: "2 anos", // Acho importante mencionar que, idealmente, esse valor também deveria vir de um input.
+        description: "trabalhava como desenvolvedor pleno" // Da mesma forma, essa descrição deveria vir de um textarea ou similar.
+    };
+
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        });
+
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+        redirectToExperiencia();
+
+    } catch (error) {
+        console.error('Fetch failed: ', error);
+    }
+}
+
+
+        function redirectToExperiencia() {
+            window.location.href = "experiencias.html";
+        }
+
+    </script>
+</body>
+
+</html>

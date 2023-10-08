@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="cadastroStyles/experiencias.css">
+    <title>Editar Experiência de Trabalho</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="formulario">
+        <div class="wrapper">
+            <h2>Editar Experiência de Trabalho</h2>
+            <form action="#">
+                <div class="lista-competencias" id="lista-competencias">
+                </div>
+                <div class="input-box button-group">
+                    <input type="button" value="Voltar" onclick="redirectToInfoPessoal()">
+                    <input type="button" value="Próximo" onclick="redirectToWelcome()">
+                    <input class="plus" type="button" value="+" onclick="redirectToAddExperiencia()">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+    <script>
+        function redirectToInfoPessoal() {
+            window.location.href = "infoPessoal.html";
+        }
+
+        function redirectToAddExperiencia() {
+            window.location.href = "addexperiencias.html";
+        }
+
+        function redirectToWelcome() {
+            window.location.href = "/recrutador/principal/welcome.html";
+        }
+
+        async function fetchData() {
+            let id = localStorage.getItem('recruiterId');
+
+            const url = `http://localhost:8080/mnt_job_vacancies/v1/recruiter/${id}/work-experience`;
+
+            try {
+                const response = await fetch(url);
+
+                if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+
+                const data = await response.json();
+
+                const competenciasContainer = document.getElementById('lista-competencias');
+
+                data.forEach(exp => {
+                    const block = document.createElement('div');
+                    block.className = 'block';
+
+                    const titulo = document.createElement('label');
+                    titulo.className = 'titulo';
+                    titulo.textContent = exp.company;
+                    block.appendChild(titulo);
+
+                    const divider = document.createElement('div');
+                    divider.className = 'divider';
+                    block.appendChild(divider);
+
+                    const descricao = document.createElement('p');
+                    descricao.className = 'descricao';
+                    descricao.textContent = `${exp.role}, ${exp.time}, ${exp.description}`;
+                    block.appendChild(descricao);
+
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    block.appendChild(checkbox);
+
+                    const label = document.createElement('label');
+                    label.className = 'atualmente';
+                    label.textContent = 'Trabalho Atualmente nesta Empresa';
+                    block.appendChild(label);
+
+                    competenciasContainer.appendChild(block);
+                });
+
+            } catch (error) {
+                console.error('Fetch failed: ', error);
+            }
+        }
+
+        window.onload = fetchData;
+
+        function validateAndProceedToWelcome() {
+    const competenciasContainer = document.getElementById('lista-competencias');
+    const blocks = competenciasContainer.getElementsByClassName('block');
+    for (let block of blocks) {
+        const titulo = block.querySelector('.titulo').textContent;
+        const descricao = block.querySelector('.descricao').textContent;
+        
+        if (!titulo.trim() || !descricao.trim()) {
+            alert("Por favor, preencha todos os campos das experiências de trabalho.");
+            return;
+        }
+    }
+
+    // Se todas as experiências forem válidas, continue para a próxima página
+    redirectToWelcome();
+}
+
+    </script>
+</body>
+
+</html>

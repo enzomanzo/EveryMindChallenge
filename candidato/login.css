@@ -1,0 +1,166 @@
+.logo{
+    width: 60px;
+    height: 60px;
+    transform: translate(-4px);
+    margin-left: 10px;
+    margin-top: -15px;
+}
+.navbar-brand{
+    font-weight: 500;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.navbar{
+    width: 100%;
+}
+
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 100% da altura da viewport */
+    flex-direction: column; /* isso garante que o conteúdo seja centrado verticalmente */
+}
+
+.formulario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 56px); /* Supondo que seu navbar tenha uma altura fixa de 56px; ajuste conforme necessário */
+    flex-direction: column;
+}
+.wrapper {
+    position: relative;
+    width: 600px; /* Ajuste este valor conforme desejar */
+    margin: 0 auto; /* Centraliza o formulário */
+    background: #fff;
+    padding: 34px;
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+.wrapper h2{
+  position: relative;
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+}
+.wrapper h2::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 65px;
+  border-radius: 12px;
+  background: rgba(0, 152, 253, 0.527);
+}
+.wrapper form{
+  margin-top: 30px;
+}
+.wrapper form .input-box{
+  height: 52px;
+  margin: 18px 0;
+}
+
+
+form .input-box input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding: 0 15px;
+  font-size: 17px;
+  font-weight: 400;
+  color: #333;
+  border: 1.5px solid #C7BEBE;
+  border-bottom-width: 2.5px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+.input-box input:focus,
+.input-box input:valid{
+  border-color: rgb(35, 119, 175, 0.178);
+}
+form .policy{
+  display: flex;
+  align-items: center;
+}
+form h3{
+  color: #707070;
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 10px;
+}
+.input-box.button input{
+  color: #fff;
+  letter-spacing: 1px;
+  border: none;
+  background: rgb(35, 119, 175, 0.178);
+  cursor: pointer;
+}
+.input-box.button input:hover{
+  background: rgb(35, 119, 175, 0.178);
+}
+form .text h3{
+ color: #333;
+ width: 100%;
+ text-align: center;
+}
+form .text h3 a{
+  color: #1fdf9f;
+  text-decoration: none;
+}
+form .text h3 a:hover{
+  text-decoration: underline;
+}
+
+
+.button-group input {
+    margin: 0 5px;
+    color: #fff;
+    letter-spacing: 1px;
+    border: none;
+    background: rgba(28, 106, 158, 0.678);
+    cursor: pointer;
+    width: 150px; /* Defina a largura desejada aqui */
+}
+
+
+.button-group input:hover {
+    background: rgba(39, 152, 228, 0.966);
+}
+
+.voltar {
+    border: 1px solid rgb(124, 124, 124);
+    background-color: rgb(206, 206, 206);
+    font-size: 18px;
+    border-radius: 5px;
+    margin-top: 20px;  /* Adiciona uma margem acima do botão */
+    width: 20%;
+    
+}
+
+.input-box .input-desc {
+    height: 100px;  /* ou o tamanho que você deseja */
+    resize: vertical; /* permite ao usuário ajustar o tamanho verticalmente */
+}
+.wrapper form .input-box {
+    margin: 18px 0 30px 0; /* 30px é um valor sugerido, ajuste conforme necessário */
+}
+.spacer {
+    padding: 10px 0;  /* Ajuste conforme necessário */
+}
+.formulario .wrapper .signin-img{
+    width: 40%;
+    display: flex;
+    margin: auto;
+    margin-bottom: 20px;
+}

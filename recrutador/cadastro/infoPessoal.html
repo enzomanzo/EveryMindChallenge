@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="cadastroStyles/infoPessoal.css">
+    <title>Informações Pessoais</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="formulario">
+        <div class="wrapper">
+            <h2>Informações Pessoais</h2>
+            <form id="personal-info-form" action="#">
+                <div class="input-box">
+                    <input type="text" id="name" placeholder="Nome" required>
+                </div>
+                <div class="input-box">
+                    <input type="text" id="about" placeholder="Sobrenome" required>
+                </div>
+                <div class="input-box">
+                    <input type="text" id="phoneNumber" placeholder="(DD) Telefone" maxlength="14" oninput="formatPhoneNumber(event)" required>
+                </div>
+                <div class="input-box">
+                    <input type="text" id="city" placeholder="Cidade" required>
+                </div>
+                <div class="input-box">
+                    <input type="text" id="state" placeholder="Estado" required>
+                </div>
+                <div class="input-box">
+                    <input type="number" id="age" placeholder="Idade" required>
+                </div>
+                <div class="input-box button-group">
+                    <input type="button" value="Voltar" onclick="redirectToCadastro()">
+                     <input type="button" value="Próximo" onclick="redirectToExperienciasRec()"> <!--alterar para "submitPersonalInfo()" quando utilizar API -->
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+    <script>
+        // async function submitPersonalInfo() {
+        //     const url = 'http://localhost:8080/mnt_job_vacancies/v1/person';
+
+        //     const body = {
+        //         name: document.getElementById('name').value,
+        //         email: document.getElementById('email').value,
+        //         password: document.getElementById('password').value,
+        //         about: document.getElementById('about').value,
+        //         phoneNumber: document.getElementById('phoneNumber').value,
+        //         city: document.getElementById('city').value,
+        //         state: document.getElementById('state').value,
+        //         age: parseInt(document.getElementById('age').value)
+        //     };
+
+        //     try {
+        //         const response = await fetch(url, {
+        //             method: 'POST',
+        //             headers: {
+        //                 'Content-Type': 'application/json'
+        //             },
+        //             body: JSON.stringify(body)
+        //         })
+
+        //         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+
+        //         const data = await response.json();
+        //         console.log(data);
+        //         const personId = data.id;
+
+        //         localStorage.setItem('personId', personId);
+
+        //         redirectToCompetencias();
+
+        //     } catch (error) {
+        //         console.error('Fetch failed: ', error);
+        //     }
+        // }
+
+        function redirectToExperienciasRec() {
+            window.location.href = "experiencias.html";
+        }
+
+        function redirectToCadastro() {
+            window.location.href = "cadastro.html";
+        }
+        
+    </script>
+        
+    <script>
+function formatPhoneNumber(event) {
+    let value = event.target.value.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
+
+    if (!value) { // Se o valor estiver vazio
+        event.target.value = "";
+        return;
+    }
+
+    if (value.length <= 2) {
+        value = '(' + value;
+    } else if (value.length <= 3) {
+        value = '(' + value + ')';
+    } else if (value.length <= 6) {
+        value = '(' + value.slice(0, 2) + ')' + value.slice(2, 6);
+    } else {
+        value = '(' + value.slice(0, 2) + ')' + value.slice(2, 6) + '-' + value.slice(6);
+    }
+
+    event.target.value = value;
+}
+
+    </script>
+    <script>
+        function redirectToExperienciasRec() {
+    let name = document.getElementById('name').value;
+    let about = document.getElementById('about').value;
+    let phoneNumber = document.getElementById('phoneNumber').value;
+    let city = document.getElementById('city').value;
+    let state = document.getElementById('state').value;
+    let age = document.getElementById('age').value;
+
+if (parseInt(age) <= 10 || isNaN(age)) {
+    alert("Por favor, insira uma idade válida");
+    return;
+}
+
+    // Verificar se algum campo está vazio
+    if (!name.trim() || !about.trim() || !phoneNumber.trim() || !city.trim() || !state.trim() || !age.trim()) {
+        alert("Por favor, preencha todos os campos.");
+        return;
+    }
+
+    // Redirecionar (ou qualquer outra lógica que você queira executar após a validação)
+    window.location.href = "experiencias.html";
+}
+
+    </script>
+</body>
+
+</html>

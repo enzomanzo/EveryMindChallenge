@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="novasInfosStyles/novaEscolaridade.css">
+    <title>Adicionar Escolaridade</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="formulario">
+        <div class="wrapper">
+            <h2>Adicionar Escolaridade</h2>
+            <form id="escolaridade-form">
+                <div class="input-box">
+                    <input type="text" id="institution" placeholder="Instituição de Ensino" required>
+                </div>
+                <div class="input-box">
+                    <input type="text" id="degree" placeholder="Diploma" required>
+                </div>
+                <div class="input-box">
+                    <input type="text" id="course" placeholder="Curso" required>
+                </div>
+                <div class="input-box">
+                    <input type="text" id="end" placeholder="Término" required>
+                </div>
+                <div class="input-box button-group">
+                    <input type="button" value="Adicionar" class="btn-adicionar" onclick="addEscolaridade()">
+                </div>
+                <div class="input-box button-group">
+                    <input type="button" value="Voltar" class="btn-voltar" onclick="redirectToEscolaridade()">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+    <script>
+        async function addEscolaridade() {
+            let id = localStorage.getItem('personId');
+
+            const url = `http://localhost:8080/mnt_job_vacancies/v1/person/${id}/degree`;
+
+            const institution = document.getElementById('institution').value;
+            const degree = document.getElementById('degree').value;
+            const course = document.getElementById('course').value;
+            const end = document.getElementById('end').value;
+
+            const body = {
+                institution: institution,
+                degree: degree,
+                course: course,
+                end: end
+            };
+
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(body)
+                });
+
+                if (response.ok) {
+                    alert('Escolaridade adicionada com sucesso!');
+                    redirectToEscolaridade();
+                } else {
+                    const responseData = await response.json();
+                    alert('Erro ao adicionar escolaridade: ' + (responseData.message || response.statusText));
+                }
+            } catch (error) {
+                console.error('Erro ao fazer request:', error);
+            }
+        }
+
+        function redirectToEscolaridade() {
+            window.location.href = "../editarEscolaridade.html";
+        }
+    </script>
+</body>
+
+</html>

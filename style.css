@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+#navbar{
+    background-color: rgba(31, 103, 151, 0);
+}
+
+.hero-section {
+    background-color: #ebebeb;
+    padding: 100px 0;
+}
+
+.features-section {
+    padding: 50px 0;
+}
+
+.footer-section {
+    padding: 20px 0;
+}
+
+@media (max-width: 768px) {
+    .navbar-dark .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(31, 103, 151)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+}
+#logo{
+
+    color: rgb(31, 103, 151);
+    font-weight: 700;
+}
+#vaga{
+    color: rgba(31, 103, 151, 0.527);
+    font-weight: 550;
+}
+#entrar{
+    color: rgb(28, 125, 189);
+    font-weight: 700;
+}
+
+
+#bottom{
+    background-color: rgba(35, 119, 175, 0.178);
+}
+.img-top{
+margin-left:50px ;
+}
+.img-bot{
+    margin-left:50px ;
+    }
+
+#button-top{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+#button-bottom{
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#button-bottom{
+    background-color: rgba(35, 119, 175, 0.068);
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+    transition: background-color 0.3s, color 0.3s; /* Adiciona uma transição suave */
+}
+
+#button-bottom:hover{
+    background-color: rgba(35, 119, 175, 0.281); /* Um tom mais escuro que o original */
+    color: rgb(50, 50, 50); /* Um tom mais escuro que o original */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+}
+#button-top{
+    background-color: rgba(235, 235, 235, 0);
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+    transition: background-color 0.3s, color 0.3s; /* Adiciona uma transição suave */
+}
+#button-top:hover {
+    background-color: rgb(215, 215, 215); /* Um tom mais escuro que o original */
+    color: rgb(50, 50, 50); /* Um tom mais escuro que o original */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+}
+
+.features-section p{
+    color: rgba(0, 0, 0, 0.623);
+    font-size:medium ;
+    margin-top: 30px;
+}
+.features-section h2{
+    font-weight: 600;
+}
