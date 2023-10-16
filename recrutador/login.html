@@ -28,6 +28,9 @@
                 <div class="input-box button-group">
                     <input type="button" value="Cadastrar" class="btn-adicionar" onclick="redirectToCadastro()">
                 </div>
+                <div class="input-box button-group">
+                    <input type="button" value="Voltar para a pagina inicial" class="btn-adicionar" onclick="redirectToIndex()">
+                </div>
                 <p>Espaço do Recrutador</p>
             </form>
         </div>
@@ -62,6 +65,10 @@
 
         function redirectToCadastro() {
             window.location.href = "./cadastro/cadastro.html";
+        }
+
+        function redirectToIndex() {
+            window.location.href = "../index.html";
         }
     </script>
     <!-- libras -->

@@ -22,6 +22,12 @@
                 <div class="input-box">
                     <input type="text" id="role" placeholder="Cargo" required>
                 </div>
+                <div class="input-box">
+                    <input type="text" id="time" placeholder="Tempo de experiência" required>
+                </div>
+                <div class="input-box">
+                    <input id="description" placeholder="Descrição da experiência" required></textarea>
+                </div>
                 <div class="input-box button-group">
                     <input type="button" value="Adicionar" class="btn-adicionar" onclick="addExperience()">
                 </div>
@@ -37,49 +43,50 @@
         crossorigin="anonymous"></script>
 
     <script>
-async function addExperience() {
-    const company = document.getElementById('company').value;
-    const role = document.getElementById('role').value;
+        async function addExperience() {
+            const company = document.getElementById('company').value;
+            const role = document.getElementById('role').value;
+            const time = document.getElementById('time').value;
+            const description = document.getElementById('description').value;
 
-    // Verificar se algum campo está vazio
-    if (!company.trim() || !role.trim()) {
-        alert("Por favor, preencha todos os campos da experiência.");
-        return;
-    }
+            // Verificar se algum campo está vazio
+            if (!company.trim() || !role.trim() || !time.trim() || !description.trim()) {
+                alert("Por favor, preencha todos os campos da experiência.");
+                return;
+            }
 
-    let id = localStorage.getItem('recruiterId');
-    const url = `http://localhost:8080/mnt_job_vacancies/v1/recruiter/${id}/work-experience`;
+            let id = localStorage.getItem('recruiterId');
+            const url = `http://localhost:8080/mnt_job_vacancies/v1/recruiter/${id}/work-experience`;
 
-    const body = {
-        company: company,
-        role: role,
-        time: "2 anos", // Acho importante mencionar que, idealmente, esse valor também deveria vir de um input.
-        description: "trabalhava como desenvolvedor pleno" // Da mesma forma, essa descrição deveria vir de um textarea ou similar.
-    };
+            const body = {
+                company: company,
+                role: role,
+                time: time,
+                description: description
+            };
 
-    try {
-        const response = await fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(body)
-        });
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(body)
+                });
 
-        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-        redirectToExperiencia();
+                if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+                redirectToExperiencia();
 
-    } catch (error) {
-        console.error('Fetch failed: ', error);
-    }
-}
-
+            } catch (error) {
+                console.error('Fetch failed: ', error);
+            }
+        }
 
         function redirectToExperiencia() {
             window.location.href = "experiencias.html";
         }
-
     </script>
+
     <!-- libras -->
     <div vw class="enabled">
         <div vw-access-button class="active"></div>

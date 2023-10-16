@@ -52,8 +52,11 @@
     <script>
         async function submitPersonalInfo() {
 
-            validateAndProceedToCompetencias()
-            const url = 'http://localhost:8080/mnt_job_vacancies/v1/person';
+            // validateAndProceedToCompetencias()
+
+            let id = localStorage.getItem('personId');
+
+            const url = `http://localhost:8080/mnt_job_vacancies/v1/person/${id}/append-info`;
 
             const body = {
                 name: document.getElementById('name').value,
@@ -61,7 +64,7 @@
                 city: document.getElementById('city').value,
                 state: document.getElementById('state').value,
                 age: parseInt(document.getElementById('age').value),
-                about: document.getElementById('description').value  // Troquei 'about' por 'description'
+                about: document.getElementById('description').value
             };
 
 

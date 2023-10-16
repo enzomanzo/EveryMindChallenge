@@ -70,7 +70,7 @@
                 password: password
             };
 
-            fetch('http://localhost:8080/mnt_job_vacancies/v1/recruiter', {
+            fetch('http://localhost:8080/mnt_job_vacancies/v1/person', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -80,7 +80,7 @@
             .then(response => response.json())
             .then(data => {
                 let id = data.id;
-                localStorage.setItem('recruiterId', id);
+                localStorage.setItem('personId', id);
                 window.location.href = "startCadastro-infoPessoal.html";
             })
             .catch((error) => {

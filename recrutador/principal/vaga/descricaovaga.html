@@ -18,17 +18,15 @@
                 <img class="logo" src="/images/mountain logo.png" alt="">
                 Blizzard
             </a>
-            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
-                data-mdb-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-                aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" aria-current="page"
-                        href="/recrutador/principal/candidato/candidatos.html">Candidatos</a>
+                    <a class="nav-link" aria-current="page" href="/recrutador/principal/candidato/candidatos.html">Candidatos</a>
                     <a class="nav-link active" href="/recrutador/principal/vaga/vagas.html">Vagas</a>
                     <a class="nav-link" href="/recrutador/principal/perfil/perfil.html">Perfil</a>
+                    <a class="nav-link" href="/recrutador/login.html">Sair</a>
                 </div>
             </div>
         </div>
@@ -184,51 +182,68 @@
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
     </script>
 
-    <script>
-        function postVacancy() {
-            const roleInput = document.getElementById('roleInput').value;
-            const localityInput = document.getElementById('localityInput').value;
-            const descriptionInput = document.getElementById('descriptionInput').value;
-            const requirementsInput = document.getElementById('requirementsInput').value;
-            const steps = document.getElementById('stepsText').value;
+<script>
+    function getSelectedPhases() {
+        let subjects = ["Logica", "Matematica", "Portugues", "Ingles", "Espanhol", "Office"];
+        let phases = [];
+        
+        subjects.forEach(subject => {
+            for (let i = 1; i <= 4; i++) {
+                let optionId = subject.toLowerCase() + i;
+                let checkbox = document.getElementById(optionId);
 
-            const data = {
-                role: roleInput,
-                locality: localityInput,
-                description: descriptionInput,
-                requirements: requirementsInput,
-                steps: steps
-            };
+                if (checkbox && checkbox.checked) {
+                    phases.push(subject + " Fase " + i);
+                }
+            }
+        });
 
-            let id = localStorage.getItem('recruiterId');
+        return phases.join(", ");
+    }
 
-            const url = `http://localhost:8080/mnt_job_vacancies/v1/recruiter/${id}/vacancy`;
+    function postVacancy() {
+        const roleInput = document.getElementById('roleInput').value;
+        const localityInput = document.getElementById('localityInput').value;
+        const descriptionInput = document.getElementById('descriptionInput').value;
+        const requirementsInput = document.getElementById('requirementsInput').value;
+        const steps = getSelectedPhases();
 
-            fetch(url, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
+        const data = {
+            role: roleInput,
+            locality: localityInput,
+            description: descriptionInput,
+            requirements: requirementsInput,
+            steps: steps
+        };
 
-                })
-                .then(response => {
-                    if (response.status === 201) {
-                        redirectToVagas();
-                    } else {
-                        throw new Error('Não foi possível criar a vaga');
-                    }
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
-        }
+        let id = localStorage.getItem('recruiterId');
 
+        const url = `http://localhost:8080/mnt_job_vacancies/v1/recruiter/${id}/vacancy`;
 
-        function redirectToVagas() {
-            window.location.href = "/recrutador/principal/vaga/vagas.html";
-        }
-    </script>
+        fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (response.status === 201) {
+                    redirectToVagas();
+                } else {
+                    throw new Error('Não foi possível criar a vaga');
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    function redirectToVagas() {
+        window.location.href = "/recrutador/principal/vaga/vagas.html";
+    }
+</script>
+
     <!-- libras -->
     <div vw class="enabled">
         <div vw-access-button class="active"></div>

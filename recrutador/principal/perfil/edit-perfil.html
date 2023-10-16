@@ -21,12 +21,13 @@
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
-            </button>    
+            </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link"  href="/recrutador/principal/candidato/candidatos.html">Candidatos</a>
-                    <a class="nav-link" aria-current="page" href="/recrutador/principal/vaga/vagas.html">Vagas</a>
+                    <a class="nav-link" aria-current="page" href="/recrutador/principal/candidato/candidatos.html">Candidatos</a>
+                    <a class="nav-link" href="/recrutador/principal/vaga/vagas.html">Vagas</a>
                     <a class="nav-link active" href="/recrutador/principal/perfil/perfil.html">Perfil</a>
+                    <a class="nav-link" href="/recrutador/login.html">Sair</a>
                 </div>
             </div>
         </div>
@@ -53,8 +54,8 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const personDetailId = localStorage.getItem("personDetailId"); // Substituir com o ID correto
-            const url = `http://localhost:8080/mnt_job_vacancies/v1/person/${personDetailId}`;
+            let recruiterId = localStorage.getItem('recruiterId'); // Substituir com o ID correto
+            const url = `http://localhost:8080/mnt_job_vacancies/v1/recruiter/${recruiterId}`;
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
