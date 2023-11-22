@@ -65,19 +65,13 @@
                 <h2 class="text-left">Experiência de Trabalho</h2>
                 <div id="workExperienceContainer">N/A</div>
             </div>
+
+            <div class="custom-div mt-2">
+                <h2 class="text-left">Vulnerabilidades Sociais</h2>
+                <div id="socialVulnerabilityContainer">N/A</div>
+            </div>
             
         </div>
-        <div class="col-lg-5 mb-4 fases-container">
-            <h3>Fases Do Candidato</h3>
-            <ul>
-                <li>Inscrição <span class="status-not-started">Não iniciado</span></li>
-                <li>Testes <span class="status-not-started">Não iniciado</span></li>
-                <li>Testes de Portugues <span class="status-not-started">Não iniciado</span></li>
-                <li>Entrevista <span class="status-not-started">Não iniciado</span></li>
-                <li>Devolutiva <span class="status-not-started">Não iniciado</span></li>
-            </ul>
-        </div>
-        
     </div>
     </div>
 
@@ -130,6 +124,12 @@
                         workElement.textContent = `Empresa: ${work.company}, Tempo: ${work.time}, Cargo: ${work.role}, Descrição: ${work.description}`;
                         workExperienceContainer.appendChild(workElement);
                     });
+
+                    let socialVulnerabilityContainer = document.getElementById('socialVulnerabilityContainer');
+                    socialVulnerabilityContainer.innerHTML = '';
+                    let socialElement = document.createElement('div');
+                    socialElement.textContent = `${data.socialVulnerability}`;
+                    socialVulnerabilityContainer.appendChild(socialElement);
                 })
                 .catch(err => console.error('Erro ao carregar os dados do perfil:', err));
         });

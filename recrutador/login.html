@@ -55,7 +55,19 @@
                 return;
             }
 
-            window.location.href = "principal/welcome.html";
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "http://localhost:8080/mnt_job_vacancies/v1/recruiter/login", true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    alert("Login bem-sucedido!");
+                    window.location.href = "principal/welcome.html";
+                } else if (xhr.status === 500){
+                    alert("Erro ao fazer login. Tente novamente!");
+                }
+            };
+            var data = JSON.stringify({"email": email, "password": password});
+            xhr.send(data);
         }
 
         function validateEmail(email) {
